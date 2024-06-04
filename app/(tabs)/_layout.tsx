@@ -22,7 +22,7 @@ export default function TabLayout() {
     {
       inactiveIcon: "link-outline",
       activeIcon: "link",
-      label: "Ex 3",
+      label: "text",
       pathname: "/two",
     },
     {
