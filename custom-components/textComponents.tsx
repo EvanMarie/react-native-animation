@@ -1,4 +1,5 @@
 import { col } from "@/constants/Colors";
+import { boldAccentFont } from "@/constants/FontVariables";
 import { textShadows } from "@/constants/ShadowStyles";
 import React from "react";
 import { StyleProp, Text, TextStyle, StyleSheet, Platform } from "react-native";
@@ -551,7 +552,7 @@ export function HeadingXxs({
   textColor = headingColor,
   padding = headingPadding,
   lineHeight = "xs",
-  fontFamily = "Play_400Regular",
+  fontFamily = boldAccentFont,
   textShadow = textShadows.rightXl,
 }: TextType) {
   const fontSize = 12;
@@ -582,7 +583,7 @@ export function HeadingXs({
   textColor = headingColor,
   padding = headingPadding,
   lineHeight = "xs",
-  fontFamily = "Play_400Regular",
+  fontFamily = boldAccentFont,
   textShadow = textShadows.rightXl,
 }: TextType) {
   const fontSize = 16;
@@ -613,7 +614,7 @@ export function HeadingSm({
   textColor = headingColor,
   padding = headingPadding,
   lineHeight = "xs",
-  fontFamily = "Play_400Regular",
+  fontFamily = boldAccentFont,
   textShadow,
 }: TextType) {
   const fontSize = 18;
@@ -643,7 +644,7 @@ export function HeadingMd({
   textColor = headingColor,
   padding = headingPadding,
   lineHeight = "xs",
-  fontFamily = "Play_400Regular",
+  fontFamily = boldAccentFont,
   textShadow = textShadows.rightXl,
 }: TextType) {
   const fontSize = 20;
@@ -673,7 +674,7 @@ export function HeadingLg({
   textColor = headingColor,
   padding = headingPadding,
   lineHeight = "xs",
-  fontFamily = "Play_400Regular",
+  fontFamily = boldAccentFont,
   textShadow = textShadows.rightXl,
 }: TextType) {
   const fontSize = 24;
@@ -703,7 +704,7 @@ export function HeadingXl({
   textColor = headingColor,
   padding = headingPadding,
   lineHeight = "xs",
-  fontFamily = "Play_400Regular",
+  fontFamily = boldAccentFont,
   textShadow = textShadows.rightXl,
 }: TextType) {
   const fontSize = 28;
@@ -733,7 +734,7 @@ export function Heading2xl({
   textColor = headingColor,
   padding = headingPadding,
   lineHeight = "xs",
-  fontFamily = "Play_400Regular",
+  fontFamily = boldAccentFont,
   textShadow = textShadows.rightXl,
 }: TextType) {
   const fontSize = 32;
@@ -763,7 +764,7 @@ export function Heading3xl({
   textColor = headingColor,
   padding = headingPadding,
   lineHeight = "xs",
-  fontFamily = "Play_400Regular",
+  fontFamily = boldAccentFont,
   textShadow = textShadows.rightXl,
 }: TextType) {
   const fontSize = 36;
@@ -793,7 +794,7 @@ export function Heading4xl({
   textColor = headingColor,
   padding = headingPadding,
   lineHeight = "xs",
-  fontFamily = "Play_400Regular",
+  fontFamily = boldAccentFont,
   textShadow = textShadows.rightXl,
 }: TextType) {
   const fontSize = 40;
@@ -823,7 +824,7 @@ export function Heading5xl({
   textColor = headingColor,
   padding = headingPadding,
   lineHeight = "xs",
-  fontFamily = "Play_400Regular",
+  fontFamily = boldAccentFont,
   textShadow = textShadows.rightXl,
 }: TextType) {
   const fontSize = 44;
@@ -853,7 +854,7 @@ export function Heading6xl({
   textColor = headingColor,
   padding = headingPadding,
   lineHeight = "xs",
-  fontFamily = "Play_400Regular",
+  fontFamily = boldAccentFont,
   textShadow = textShadows.rightXl,
 }: TextType) {
   const fontSize = 48;
@@ -883,7 +884,7 @@ export function Heading7xl({
   textColor = headingColor,
   padding = headingPadding,
   lineHeight = "xs",
-  fontFamily = "Play_400Regular",
+  fontFamily = boldAccentFont,
   textShadow = textShadows.rightXl,
 }: TextType) {
   const fontSize = 52;
@@ -913,7 +914,7 @@ export function Heading8xl({
   textColor = headingColor,
   padding = headingPadding,
   lineHeight = "xs",
-  fontFamily = "Play_400Regular",
+  fontFamily = boldAccentFont,
   textShadow = textShadows.rightXl,
 }: TextType) {
   const fontSize = 56;
@@ -943,7 +944,7 @@ export function Heading9xl({
   textColor = headingColor,
   padding = headingPadding,
   lineHeight = "xs",
-  fontFamily = "Play_400Regular",
+  fontFamily = boldAccentFont,
   textShadow = textShadows.rightXl,
 }: TextType) {
   const fontSize = 60;
@@ -973,7 +974,7 @@ export function Heading10xl({
   textColor = headingColor,
   padding = headingPadding,
   lineHeight = "xs",
-  fontFamily = "Play_400Regular",
+  fontFamily = boldAccentFont,
   textShadow = textShadows.rightXl,
 }: TextType) {
   const fontSize = 68;

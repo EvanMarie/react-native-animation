@@ -11,6 +11,7 @@ import Animated, {
 } from "react-native-reanimated";
 import AnimationContainer from "./animationContainer";
 import MyIconButton from "@/custom-components/iconButton";
+import { animatedElementStyle } from "./styles";
 
 export default function AnimationOne() {
   const offsetX = useSharedValue(0);
@@ -32,25 +33,15 @@ export default function AnimationOne() {
   };
 
   return (
-    <AnimationContainer>
-      <MyIconButton
-        onPress={resetAnimation}
-        iconName="refresh"
-        style={{ position: "absolute", top: 10, right: 10 }}
-        size={30}
-        padding={3}
-      />
+    <AnimationContainer
+      resetAnimation={resetAnimation}
+      title="X & Y Animations"
+    >
       <Animated.View
         style={[
+          animatedElementStyle,
           animatedStyles,
-          borders.borderSm600,
-          boxShadows.xl,
-          {
-            width: 40,
-            height: 40,
-            backgroundColor: col[500],
-            borderRadius: 50,
-          },
+          { width: 40, height: 40 },
         ]}
       />
       <Flex style={{ gap: 20 }}>
