@@ -104,6 +104,7 @@ export default function MyButton({
             )}
             <TextSm
               padding={0}
+              textColor={buttonText}
               style={[
                 {
                   color: color,
@@ -111,7 +112,7 @@ export default function MyButton({
                   fontFamily: boldAccentFont,
                   paddingVertical: 2,
                 },
-                textShadows.glow100Lg,
+                textShadows.glow900Lg,
               ]}
             >
               {text}

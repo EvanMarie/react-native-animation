@@ -1,3 +1,6 @@
+import { borders } from "./BorderStyles";
+import { boxShadows } from "./ShadowStyles";
+
 export const col= {
   "light": "rgba(252, 250, 220, 1)",
   "dark": "rgba(10, 0, 7, 1)",
@@ -101,8 +104,8 @@ export const col= {
           990: "rgba(26, 11, 21, 0.9)",
         }
 
-export const buttonBg = col[500];
-export const buttonText = col[800];
+export const buttonBg = col[600];
+export const buttonText = col[100];
 export const buttonPressBg = col[800];
 export const buttonPressText = col[100];
 
