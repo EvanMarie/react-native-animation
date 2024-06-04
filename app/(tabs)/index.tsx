@@ -5,7 +5,7 @@ import { ScrollView } from "react-native-gesture-handler";
 
 export default function Index() {
   return (
-    <GradientTwo style={{ paddingTop: 50 }}>
+    <GradientTwo style={{ paddingTop: 55 }}>
       <ScrollView>
         <VStackFull>
           <AnimationOne />

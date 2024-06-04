@@ -1,9 +1,8 @@
 import { borders } from "@/constants/BorderStyles";
 import { col } from "@/constants/Colors";
 import { boxShadows } from "@/constants/ShadowStyles";
-import { screenHeight } from "@/constants/variousConstants";
 import MyButton from "@/custom-components/button";
-import { Flex, VStackFull } from "@/custom-components/containers";
+import { Flex } from "@/custom-components/containers";
 import React from "react";
 import Animated, {
   useSharedValue,
@@ -11,6 +10,7 @@ import Animated, {
   withSpring,
 } from "react-native-reanimated";
 import AnimationContainer from "./animationContainer";
+import MyIconButton from "@/custom-components/iconButton";
 
 export default function AnimationOne() {
   const offsetX = useSharedValue(0);
@@ -22,8 +22,24 @@ export default function AnimationOne() {
     };
   });
 
+  const getRandomSign = () => {
+    return Math.random() < 0.5 ? -1 : 1;
+  };
+
+  const resetAnimation = () => {
+    offsetX.value = withSpring(0);
+    offsetY.value = withSpring(0);
+  };
+
   return (
     <AnimationContainer>
+      <MyIconButton
+        onPress={resetAnimation}
+        iconName="refresh"
+        style={{ position: "absolute", top: 10, right: 10 }}
+        size={30}
+        padding={3}
+      />
       <Animated.View
         style={[
           animatedStyles,
@@ -47,7 +63,20 @@ export default function AnimationOne() {
         <MyButton
           text="Move X"
           onPress={() => {
-            offsetX.value = withSpring(Math.random() * 200);
+            const randomValue = Math.random() * 200;
+            const randomSign = getRandomSign();
+            offsetX.value = withSpring(randomValue * randomSign);
+          }}
+        />
+        <MyButton
+          text="Move X & Y"
+          onPress={() => {
+            const randomValueX = Math.random() * 200;
+            const randomValueY = Math.random() * -200;
+            const randomSignX = getRandomSign();
+            const randomSignY = getRandomSign();
+            offsetX.value = withSpring(randomValueX * randomSignX);
+            offsetY.value = withSpring(randomValueY * randomSignY);
           }}
         />
       </Flex>

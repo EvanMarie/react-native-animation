@@ -6,7 +6,7 @@ import {
   StyleSheet,
 } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
-import { col } from "@/constants/Colors";
+import { buttonBg, buttonText, col } from "@/constants/Colors";
 import { boxShadows } from "@/constants/ShadowStyles";
 import { borders } from "@/constants/BorderStyles";
 
@@ -20,12 +20,12 @@ interface CustomIconButtonProps {
   padding?: number;
 }
 
-const CustomIconButton: React.FC<CustomIconButtonProps> = ({
+const MyIconButton: React.FC<CustomIconButtonProps> = ({
   iconName,
   onPress,
   size = 33,
-  color = col[900],
-  backgroundColor = col[500],
+  color = buttonText,
+  backgroundColor = buttonBg,
   padding = 8,
   style,
 }) => {
@@ -55,4 +55,4 @@ const CustomIconButton: React.FC<CustomIconButtonProps> = ({
   );
 };
 
-export default CustomIconButton;
+export default MyIconButton;

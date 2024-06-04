@@ -43,7 +43,7 @@ export default function MyButton({
   cancelText,
 }: CustomButtonProps) {
   const [bg, setBg] = useState(buttonBg);
-  const [color, setColor] = useState(col[900]);
+  const [color, setColor] = useState(buttonText);
 
   const onPressButton = () => {
     if (scrollTo) {
@@ -91,7 +91,7 @@ export default function MyButton({
       >
         {isLoading ? (
           <View style={{ paddingHorizontal: 5, paddingVertical: 5 }}>
-            <BouncingDots color={col[600]} />
+            <BouncingDots color={col[200]} />
           </View>
         ) : (
           <>
