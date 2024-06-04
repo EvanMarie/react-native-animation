@@ -20,8 +20,8 @@ function NavItem({
   activeIcon,
   inactiveIcon,
   iconSize = 23,
-  inactiveIconColor = col[790],
-  activeIconColor = col[900],
+  inactiveIconColor = col[400],
+  activeIconColor = col[200],
   label,
   pathname,
 }: {
@@ -75,7 +75,7 @@ export default function MyNavBar({
 }) {
   return (
     <LinearGradient
-      colors={[col[600], col[500]]}
+      colors={[col[700], col[800]]}
       style={[
         borderTop,
         {

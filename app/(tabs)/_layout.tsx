@@ -39,7 +39,6 @@ export default function TabLayout() {
         <MyNavBar navItems={testNavItems} />
         <Stack>
           <Stack.Screen name="index" options={{ headerShown: false }} />
-          <Stack.Screen name="design" options={{ headerShown: false }} />
           <Stack.Screen name="one" options={{ headerShown: false }} />
           <Stack.Screen name="two" options={{ headerShown: false }} />
         </Stack>
