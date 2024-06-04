@@ -3,17 +3,24 @@ import Animated, {
   useSharedValue,
   useAnimatedStyle,
   withTiming,
+  withSequence,
 } from "react-native-reanimated";
 import AnimationContainer from "./animationContainer";
 import { screenHeight } from "@/constants/variousConstants";
 import { FlexFull } from "@/custom-components/containers";
 import { textShadows } from "@/constants/ShadowStyles";
 
-export default function AnimationNine() {
+export default function AnimationTen() {
   const skewX = useSharedValue(0);
 
   useEffect(() => {
-    skewX.value = withTiming(20, { duration: 2000 });
+    skewX.value = withSequence(
+      withTiming(20, { duration: 1000 }),
+      withTiming(-20, { duration: 1000 }),
+      withTiming(10, { duration: 1000 }),
+      withTiming(-10, { duration: 1000 }),
+      withTiming(0, { duration: 1000 })
+    );
   }, []);
 
   const animatedStyles = useAnimatedStyle(() => ({
@@ -22,13 +29,19 @@ export default function AnimationNine() {
 
   const restartAnimation = () => {
     skewX.value = 0;
-    skewX.value = withTiming(20, { duration: 2000 });
+    skewX.value = withSequence(
+      withTiming(30, { duration: 1000 }),
+      withTiming(-30, { duration: 1000 }),
+      withTiming(20, { duration: 1000 }),
+      withTiming(-20, { duration: 1000 }),
+      withTiming(0, { duration: 1000 })
+    );
   };
 
   return (
     <AnimationContainer
       height={screenHeight * 0.1}
-      title="Skewed Text"
+      title="Sequenced Skewed Text"
       resetAnimation={restartAnimation}
     >
       <FlexFull

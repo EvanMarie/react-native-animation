@@ -9,26 +9,31 @@ import { screenHeight } from "@/constants/variousConstants";
 import { FlexFull } from "@/custom-components/containers";
 import { textShadows } from "@/constants/ShadowStyles";
 
-export default function AnimationNine() {
-  const skewX = useSharedValue(0);
+export default function AnimationEleven() {
+  const opacity = useSharedValue(0);
+  const scale = useSharedValue(0.5);
 
   useEffect(() => {
-    skewX.value = withTiming(20, { duration: 2000 });
+    opacity.value = withTiming(1, { duration: 2000 });
+    scale.value = withTiming(1, { duration: 2000 });
   }, []);
 
   const animatedStyles = useAnimatedStyle(() => ({
-    transform: [{ skewX: `${skewX.value}deg` }],
+    opacity: opacity.value,
+    transform: [{ scale: scale.value }],
   }));
 
   const restartAnimation = () => {
-    skewX.value = 0;
-    skewX.value = withTiming(20, { duration: 2000 });
+    opacity.value = 0;
+    scale.value = 0.5;
+    opacity.value = withTiming(1, { duration: 2000 });
+    scale.value = withTiming(1, { duration: 2000 });
   };
 
   return (
     <AnimationContainer
       height={screenHeight * 0.1}
-      title="Skewed Text"
+      title="Opacity & Scale"
       resetAnimation={restartAnimation}
     >
       <FlexFull
@@ -45,7 +50,7 @@ export default function AnimationNine() {
             { fontFamily: "Play-Bold", fontSize: 33 },
           ]}
         >
-          Skewed Text
+          Opacity & Scale
         </Animated.Text>
       </FlexFull>
     </AnimationContainer>
