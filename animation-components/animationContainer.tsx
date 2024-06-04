@@ -15,18 +15,25 @@ export default function AnimationContainer({
   resetAnimation,
   title,
   style,
+  headingLight = false,
 }: {
   children: React.ReactNode;
   height?: number;
   title?: string;
   resetAnimation?: () => void;
   style?: any;
+  headingLight?: boolean;
 }) {
   return (
     <CenterHorizontalFull style={[style, { paddingHorizontal: 10 }]}>
       <VStackFull style={{ paddingTop: 20 }}>
         {title && (
-          <HeadingLg textColor={col[800]} textShadow={textShadows.glow200Sm}>
+          <HeadingLg
+            textColor={headingLight ? col[200] : col[800]}
+            textShadow={
+              headingLight ? textShadows.rightMd : textShadows.glow200Sm
+            }
+          >
             {title}
           </HeadingLg>
         )}

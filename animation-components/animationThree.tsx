@@ -4,16 +4,19 @@ import Animated, {
   useSharedValue,
   useAnimatedStyle,
   withSpring,
+  cancelAnimation,
 } from "react-native-reanimated";
 import { Gesture, GestureDetector } from "react-native-gesture-handler";
 import AnimationContainer from "./animationContainer";
-import { animatedElementStyle } from "./styles";
+import { animatedElementStyle, elementStyleTwo } from "./styles";
 import { TextSm, TextXs } from "@/custom-components/textComponents";
 import { FlexFull } from "@/custom-components/containers";
 
 export default function GestureAnimation() {
   const offsetX = useSharedValue(0);
   const offsetY = useSharedValue(0);
+  const startX = useSharedValue(0);
+  const startY = useSharedValue(0);
 
   const animatedStyles = useAnimatedStyle(() => {
     return {
@@ -22,9 +25,15 @@ export default function GestureAnimation() {
   });
 
   const gesture = Gesture.Pan()
+    .onStart(() => {
+      cancelAnimation(offsetX);
+      cancelAnimation(offsetY);
+      startX.value = offsetX.value;
+      startY.value = offsetY.value;
+    })
     .onUpdate((event) => {
-      offsetX.value = event.translationX;
-      offsetY.value = event.translationY;
+      offsetX.value = startX.value + event.translationX;
+      offsetY.value = startY.value + event.translationY;
     })
     .onEnd(() => {
       offsetX.value = withSpring(0);
@@ -32,7 +41,7 @@ export default function GestureAnimation() {
     });
 
   return (
-    <AnimationContainer title="Basic Pan Gesture">
+    <AnimationContainer title="Spring Physics Gesture" headingLight>
       <FlexFull
         style={{
           height: "100%",
@@ -44,7 +53,7 @@ export default function GestureAnimation() {
           <Animated.View
             style={[
               animatedStyles,
-              animatedElementStyle,
+              elementStyleTwo,
               { width: 60, height: 60, justifyContent: "center" },
             ]}
           >

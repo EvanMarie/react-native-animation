@@ -3,16 +3,19 @@ import Animated, {
   useSharedValue,
   useAnimatedStyle,
   withDecay,
+  cancelAnimation,
 } from "react-native-reanimated";
 import { Gesture, GestureDetector } from "react-native-gesture-handler";
 import AnimationContainer from "./animationContainer";
-import { animatedElementStyle } from "./styles";
+import { animatedElementStyle, elementStyleTwo } from "./styles";
 import { TextXs } from "@/custom-components/textComponents";
 import { FlexFull } from "@/custom-components/containers";
 
 export default function AnimationFour() {
   const offsetX = useSharedValue(0);
   const offsetY = useSharedValue(0);
+  const startX = useSharedValue(0);
+  const startY = useSharedValue(0);
 
   const animatedStyles = useAnimatedStyle(() => {
     return {
@@ -21,9 +24,15 @@ export default function AnimationFour() {
   });
 
   const gesture = Gesture.Pan()
+    .onStart(() => {
+      cancelAnimation(offsetX);
+      cancelAnimation(offsetY);
+      startX.value = offsetX.value;
+      startY.value = offsetY.value;
+    })
     .onUpdate((event) => {
-      offsetX.value = event.translationX;
-      offsetY.value = event.translationY;
+      offsetX.value = startX.value + event.translationX;
+      offsetY.value = startY.value + event.translationY;
     })
     .onEnd((event) => {
       offsetX.value = withDecay({
@@ -45,6 +54,7 @@ export default function AnimationFour() {
     <AnimationContainer
       resetAnimation={resetAnimation}
       title="Gesture Handling with Decay"
+      headingLight
     >
       <FlexFull
         style={{
@@ -57,12 +67,12 @@ export default function AnimationFour() {
           <Animated.View
             style={[
               animatedStyles,
-              animatedElementStyle,
+              elementStyleTwo,
               { width: 60, height: 60, justifyContent: "center" },
             ]}
           >
             <TextXs style={{ textAlign: "center", fontWeight: 600 }}>
-              Drag Me
+              Fling Me
             </TextXs>
           </Animated.View>
         </GestureDetector>

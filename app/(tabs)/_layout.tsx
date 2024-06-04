@@ -8,21 +8,21 @@ import React from "react";
 export default function TabLayout() {
   const testNavItems = [
     {
-      inactiveIcon: "home-outline",
-      activeIcon: "home",
-      label: "home",
+      inactiveIcon: "link-outline",
+      activeIcon: "link",
+      label: "x & y",
       pathname: "/",
     },
     {
       inactiveIcon: "link-outline",
       activeIcon: "link",
-      label: "one",
+      label: "gestures",
       pathname: "/one",
     },
     {
       inactiveIcon: "link-outline",
       activeIcon: "link",
-      label: "two",
+      label: "Ex 3",
       pathname: "/two",
     },
     {

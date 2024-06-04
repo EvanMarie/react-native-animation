@@ -10,3 +10,12 @@ export const animatedElementStyle = [
     borderRadius: 50,
   },
 ];
+
+export const elementStyleTwo = [
+  borders.borderSm600,
+  boxShadows.xl,
+  {
+    backgroundColor: col[700],
+    borderRadius: 50,
+  },
+];
