@@ -1,7 +1,4 @@
-import {
-  animatedElementStyle,
-  elementStyleTwo,
-} from "@/animation-components/styles";
+import { elementStyleTwo } from "@/animation-components/styles";
 import { GradientTen } from "@/constants/Gradients";
 import { screenHeight, screenWidth } from "@/constants/variousConstants";
 import MyButton from "@/custom-components/button";
@@ -11,7 +8,7 @@ import {
 } from "@/custom-components/containers";
 import { TextXl } from "@/custom-components/textComponents";
 import React from "react";
-import { Button, View, Text, StyleSheet } from "react-native";
+import { View } from "react-native";
 import Animated, {
   useAnimatedRef,
   useDerivedValue,
@@ -20,9 +17,6 @@ import Animated, {
 } from "react-native-reanimated";
 import type { SharedValue } from "react-native-reanimated";
 
-const ITEM_COUNT = 100;
-const ITEM_SIZE = 125;
-const ITEM_MARGIN = 25;
 const SCROLL_CONTAINER_HEIGHT = screenHeight * 0.75;
 
 export default function ScrollTo() {
@@ -37,15 +31,15 @@ export default function ScrollTo() {
     );
   });
 
-  const items = Array.from(Array(ITEM_COUNT).keys());
+  const items = Array.from(Array(100).keys());
 
   return (
     <GradientTen style={{ paddingTop: 70 }}>
       <VStackFull style={{ height: screenHeight * 0.9, gap: 10 }}>
-        <Incrementor increment={-1} scroll={scroll} />
+        <NavButton increment={-1} scroll={scroll} />
         <CenterHorizontalFull style={{ height: SCROLL_CONTAINER_HEIGHT }}>
           <Animated.ScrollView ref={animatedRef}>
-            <VStackFull style={{ gap: ITEM_MARGIN, paddingVertical: 10 }}>
+            <VStackFull style={{ gap: 25, paddingVertical: 10 }}>
               {items.map((_, i) => (
                 <CenterHorizontalFull key={i}>
                   <View
@@ -66,13 +60,13 @@ export default function ScrollTo() {
             </VStackFull>
           </Animated.ScrollView>
         </CenterHorizontalFull>
-        <Incrementor increment={1} scroll={scroll} />
+        <NavButton increment={1} scroll={scroll} />
       </VStackFull>
     </GradientTen>
   );
 }
 
-const Incrementor = ({
+const NavButton = ({
   increment,
   scroll,
 }: {
@@ -81,37 +75,18 @@ const Incrementor = ({
 }) => (
   <CenterHorizontalFull>
     <MyButton
+      icon={
+        increment > 0 ? "caret-down-circle-outline" : "caret-up-circle-outline"
+      }
       onPress={() => {
         scroll.value =
           scroll.value + increment > 0
             ? scroll.value + increment
-            : ITEM_COUNT - 1 + increment;
+            : 100 - 1 + increment;
 
-        if (scroll.value >= ITEM_COUNT - 2) scroll.value = 0;
+        if (scroll.value >= 100 - 2) scroll.value = 0;
       }}
       text={`Page  ${increment > 0 ? "down" : "up"}`}
     />
   </CenterHorizontalFull>
 );
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-  },
-
-  box: {
-    width: ITEM_SIZE,
-    height: ITEM_SIZE,
-    margin: ITEM_MARGIN,
-    borderRadius: 15,
-    backgroundColor: "#b58df1",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  boxWrapper: {
-    width: "100%",
-    height: 250,
-    alignItems: "center",
-  },
-});
