@@ -5,37 +5,47 @@ import { screenHeight } from "@/constants/variousConstants";
 import { FlexFull } from "@/custom-components/containers";
 import { TextLg } from "@/custom-components/textComponents";
 import { elementStyleTwo } from "./styles";
+import { View } from "react-native";
+import { boxShadows } from "@/constants/ShadowStyles";
+import { col } from "@/constants/Colors";
 
-export default function AnimationSixteen() {
+export default function AnimationSeventeen() {
   const [restart, setRestart] = useState(false);
 
   const keyframeAnimation = new Keyframe({
     0: {
       opacity: 0,
-      transform: [{ translateY: -50 }, { scale: 0.5 }, { rotate: "0deg" }],
+      transform: [{ translateY: -100 }, { scale: 0.5 }, { rotate: "0deg" }],
+      backgroundColor: col[300],
     },
-    25: {
+    20: {
       opacity: 0.5,
       transform: [{ translateY: -50 }, { scale: 0.75 }, { rotate: "90deg" }],
+      backgroundColor: col[400],
     },
-    50: {
-      opacity: 0.75,
-      transform: [{ translateY: 0 }, { scale: 1 }, { rotate: "180deg" }],
-    },
-    75: {
+    40: {
       opacity: 1,
+      transform: [{ translateY: 0 }, { scale: 1 }, { rotate: "180deg" }],
+      backgroundColor: col[500],
+    },
+    60: {
+      opacity: 0.75,
       transform: [{ translateY: 50 }, { scale: 1.25 }, { rotate: "270deg" }],
+      backgroundColor: col[600],
+    },
+    80: {
+      opacity: 0.5,
+      transform: [{ translateY: 100 }, { scale: 1.5 }, { rotate: "360deg" }],
+      backgroundColor: col[500],
     },
     100: {
       opacity: 1,
-      transform: [{ translateY: 0 }, { scale: 1 }, { rotate: "360deg" }],
+      transform: [{ translateY: 0 }, { scale: 1 }, { rotate: "0deg" }],
+      backgroundColor: col[400],
     },
-  }).duration(500);
-
-  const [enteringKeyframe, setEnteringKeyframe] = useState(keyframeAnimation);
+  }).duration(2000);
 
   const restartAnimation = () => {
-    setEnteringKeyframe(keyframeAnimation);
     setRestart((prev) => !prev);
   };
 
@@ -48,7 +58,7 @@ export default function AnimationSixteen() {
   return (
     <AnimationContainer
       height={screenHeight * 0.3}
-      title="Sequential Keyframes"
+      title="Advanced Sequence"
       resetAnimation={restartAnimation}
       headingLight
     >
@@ -61,10 +71,25 @@ export default function AnimationSixteen() {
       >
         <Animated.View
           key={restart.toString()}
-          entering={enteringKeyframe}
-          style={[elementStyleTwo, { paddingHorizontal: 10 }]}
+          entering={keyframeAnimation}
+          style={[
+            boxShadows.xl,
+            {
+              borderRadius: 20,
+              justifyContent: "center",
+              alignItems: "center",
+            },
+          ]}
         >
-          <TextLg>Sequential Keyframes</TextLg>
+          <View
+            style={{
+              paddingHorizontal: 10,
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <TextLg>Advanced Sequence</TextLg>
+          </View>
         </Animated.View>
       </FlexFull>
     </AnimationContainer>

@@ -32,11 +32,17 @@ export default function TabLayout() {
       pathname: "/three",
     },
     {
-      inactiveIcon: "color-palette-outline",
-      activeIcon: "color-palette",
-      label: "design",
-      pathname: "/design",
+      inactiveIcon: "link-outline",
+      activeIcon: "link",
+      label: "scrolTo",
+      pathname: "/four",
     },
+    // {
+    //   inactiveIcon: "color-palette-outline",
+    //   activeIcon: "color-palette",
+    //   label: "design",
+    //   pathname: "/design",
+    // },
   ];
 
   return (
@@ -48,6 +54,7 @@ export default function TabLayout() {
           <Stack.Screen name="one" options={{ headerShown: false }} />
           <Stack.Screen name="two" options={{ headerShown: false }} />
           <Stack.Screen name="three" options={{ headerShown: false }} />
+          <Stack.Screen name="four" options={{ headerShown: false }} />
         </Stack>
       </GradientFive>
     </FlexFull>

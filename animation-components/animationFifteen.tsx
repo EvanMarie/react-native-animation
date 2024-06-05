@@ -7,7 +7,7 @@ import { FlexFull } from "@/custom-components/containers";
 import { textShadows } from "@/constants/ShadowStyles";
 import { TextLg } from "@/custom-components/textComponents";
 import { col } from "@/constants/Colors";
-import { animatedElementStyle } from "./styles";
+import { elementStyleTwo } from "./styles";
 
 export default function AnimationFifteen() {
   const [restart, setRestart] = useState(false);
@@ -63,7 +63,7 @@ export default function AnimationFifteen() {
         <Animated.View
           key={restart.toString()}
           entering={enteringKeyframe}
-          style={[animatedElementStyle, { paddingHorizontal: 10 }]}
+          style={[elementStyleTwo, { paddingHorizontal: 10 }]}
         >
           <TextLg>Entering Keyframes</TextLg>
         </Animated.View>

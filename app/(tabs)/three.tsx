@@ -1,4 +1,5 @@
 import AnimationFifteen from "@/animation-components/animationFifteen";
+import AnimationSeventeen from "@/animation-components/animationSeventeen";
 import AnimationSix from "@/animation-components/animationSix";
 import AnimationSixteen from "@/animation-components/animationSixteen";
 import { GradientTen } from "@/constants/Gradients";
@@ -12,6 +13,7 @@ export default function Keyframes() {
         <VStackFull style={{ gap: 10, paddingVertical: 70 }}>
           <AnimationFifteen />
           <AnimationSixteen />
+          <AnimationSeventeen />
         </VStackFull>
       </ScrollView>
     </GradientTen>
