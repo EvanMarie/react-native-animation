@@ -13,9 +13,13 @@ export default function AnimationEleven() {
   const opacity = useSharedValue(0);
   const scale = useSharedValue(0.5);
 
-  useEffect(() => {
+  const opacityScale = () => {
     opacity.value = withTiming(1, { duration: 2000 });
     scale.value = withTiming(1, { duration: 2000 });
+  };
+
+  useEffect(() => {
+    opacityScale();
   }, []);
 
   const animatedStyles = useAnimatedStyle(() => ({
@@ -26,8 +30,7 @@ export default function AnimationEleven() {
   const restartAnimation = () => {
     opacity.value = 0;
     scale.value = 0.5;
-    opacity.value = withTiming(1, { duration: 2000 });
-    scale.value = withTiming(1, { duration: 2000 });
+    opacityScale();
   };
 
   return (

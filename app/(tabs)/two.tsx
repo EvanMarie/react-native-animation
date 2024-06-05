@@ -1,9 +1,11 @@
 import AnimationEight from "@/animation-components/animationEight";
 import AnimationEleven from "@/animation-components/animationEleven";
+import AnimationFourteen from "@/animation-components/animationFourteen";
 import AnimationNine from "@/animation-components/animationNine";
 import AnimationSeven from "@/animation-components/animationSeven";
 import AnimationSix from "@/animation-components/animationSix";
 import AnimationTen from "@/animation-components/animationTen";
+import AnimationThirteen from "@/animation-components/animationThirteen";
 import AnimationTwelve from "@/animation-components/animationTwelve";
 import { GradientOne } from "@/constants/Gradients";
 import { VStackFull } from "@/custom-components/containers";
@@ -21,6 +23,8 @@ export default function Two() {
           <AnimationTen />
           <AnimationEleven />
           <AnimationTwelve />
+          <AnimationThirteen />
+          <AnimationFourteen />
         </VStackFull>
       </ScrollView>
     </GradientOne>

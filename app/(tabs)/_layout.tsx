@@ -26,6 +26,12 @@ export default function TabLayout() {
       pathname: "/two",
     },
     {
+      inactiveIcon: "link-outline",
+      activeIcon: "link",
+      label: "keyframes",
+      pathname: "/three",
+    },
+    {
       inactiveIcon: "color-palette-outline",
       activeIcon: "color-palette",
       label: "design",
@@ -41,6 +47,7 @@ export default function TabLayout() {
           <Stack.Screen name="index" options={{ headerShown: false }} />
           <Stack.Screen name="one" options={{ headerShown: false }} />
           <Stack.Screen name="two" options={{ headerShown: false }} />
+          <Stack.Screen name="three" options={{ headerShown: false }} />
         </Stack>
       </GradientFive>
     </FlexFull>
