@@ -4,6 +4,7 @@ import AnimationNine from "@/animation-components/animationNine";
 import AnimationSeven from "@/animation-components/animationSeven";
 import AnimationSix from "@/animation-components/animationSix";
 import AnimationTen from "@/animation-components/animationTen";
+import AnimationTwelve from "@/animation-components/animationTwelve";
 import { GradientOne } from "@/constants/Gradients";
 import { VStackFull } from "@/custom-components/containers";
 import { ScrollView } from "react-native-gesture-handler";
@@ -19,6 +20,7 @@ export default function Two() {
           <AnimationNine />
           <AnimationTen />
           <AnimationEleven />
+          <AnimationTwelve />
         </VStackFull>
       </ScrollView>
     </GradientOne>
